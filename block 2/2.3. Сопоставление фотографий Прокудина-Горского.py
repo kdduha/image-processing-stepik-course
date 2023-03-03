@@ -29,7 +29,7 @@ def align(img, g_coord):
                 best_correlation_red = correlation_red
                 best_red = (i, j)
                 
-    # пробую соединить все каналы использовав сдвиги по оптимальным координатам         
+    # пробую соединить все каналы, использовав сдвиги по оптимальным координатам         
     # new_r = np.roll(np.roll(r, best_red[0], 0), best_red[1], 1)
     # new_b = np.roll(np.roll(b, best_blue[0], 0), best_blue[1], 1)
     # new_img = dstack((new_r, g, new_b))
