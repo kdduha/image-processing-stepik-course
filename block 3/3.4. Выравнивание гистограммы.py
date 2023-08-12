@@ -2,6 +2,7 @@ from skimage.io import imread, imsave
 import numpy as np
 
 img = imread('img.png')
+# ищем гистограмму значений 
 values, bin_edges = np.histogram(img.ravel(), bins=range(257))
 
 # считаем количество значений пикселей для каждого промежутка [0, x], где x - значения корзины
