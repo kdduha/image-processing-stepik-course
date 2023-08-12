@@ -9,17 +9,17 @@ def align(img, g_coord):
     
     dif= img.shape[0]//3    # делим img на 3 части
     b, g, r = img[:dif, :], img[dif:dif*2, :], img[dif*2:dif*3, :]
-    # из-за округления в r лучше делать срез по строкам не до конца (иначе будут разные размеры в пиксель)
+    # из-за округления в r лучше делать срез по строкам не до конца (иначе будут разные размеры в один пиксель)
     
-    height, witdh = int(dif * 0.1), int(img.shape[1] * 0.1)    # у меня тесты прошли с 10% процентами, а не с 5%
+    height, witdh = int(dif * 0.1), int(img.shape[1] * 0.1)     # у меня тесты прошли с 10% процентами, а не с 5%
     r, g, b = r[height:1-height, witdh:1-witdh], g[height:1-height, witdh:1-witdh], b[height:1-height, witdh:1-witdh]  # обрезаем края на определенный процент 
     
     best_correlation_blue, best_correlation_red = 0, 0    
-    for i in range(-15, 16):        # диапазон в +-15px из условия, i - строки, j - колонки
+    for i in range(-15, 16):                                    # диапазон в +-15px из условия, i - строки, j - колонки
         for j in range(-15, 16):
-            shift_blue = np.roll(np.roll(b, i, 0), j, 1) # двойным циклом сдвигаем картинку 
-            correlation_blue = (shift_blue * g).sum()    # считаем значение корреляции (похожость картинок)
-            if correlation_blue > best_correlation_blue:    # находим наибольшую корреляцию
+            shift_blue = np.roll(np.roll(b, i, 0), j, 1)        # двойным циклом сдвигаем картинку 
+            correlation_blue = (shift_blue * g).sum()           # считаем значение корреляции (похожость картинок)
+            if correlation_blue > best_correlation_blue:        # находим наибольшую корреляцию
                 best_correlation_blue = correlation_blue
                 best_blue = (i, j)                          
                 # фиксируем соотвествующие координаты (строки, столбики)
