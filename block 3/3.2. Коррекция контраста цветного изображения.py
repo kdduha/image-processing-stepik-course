@@ -4,6 +4,7 @@ import numpy as np
 
 img = img_as_float(imread('img.png'))
 r, g, b = img[:, :, 0], img[:, :, 1], img[:, :, 2]    # пункты 1-2
+
 y = 0.2126*r + 0.7152*g + 0.0722*b
 u = -0.0999*r - 0.3360*g + 0.4360*b
 v = 0.6150*r - 0.5586*g - 0.0563*b   
