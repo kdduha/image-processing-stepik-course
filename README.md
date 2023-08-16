@@ -1,5 +1,4 @@
 # image-processing-stepik-course
-Решения задач с пояснениями к курсу на Stepik "Обработка изображений"
 
 ![python](https://img.shields.io/badge/python-6a6a6a?style=flat&logo=python&logoColor=white&link=https%3A%2F%2Fwww.python.org%2F)
 ![skimage](https://img.shields.io/badge/skimage-61ca9a?style=flat&link=https%3A%2F%2Fscikit-image.org%2F)
